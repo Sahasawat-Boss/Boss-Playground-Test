@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Footer() {
-  return (
+return (
     <footer className="footer bg-[#2e2e2e] text-neutral-content items-center p-4">
         <aside className="grid-flow-col items-center">
             <svg
@@ -53,7 +53,7 @@ function Footer() {
             </a>
         </nav>
     </footer>
-  )
+)
 }
 
 export default Footer
