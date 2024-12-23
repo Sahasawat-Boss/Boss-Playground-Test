@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
 return (
-    <footer className="footer bg-[#2e2e2e] text-neutral-content items-center p-4">
+    <footer className="footer bg-[#2e2e2e] text-neutral-content items-center p-6">
         <aside className="grid-flow-col items-center">
             <svg
             width="20"
@@ -17,6 +17,9 @@ return (
             </svg>
             <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
         </aside>
+        <div className="grid-flow-col items-center">
+            <a href="/WelcomePage">Welcome-Page for Test</a>
+        </div>
         <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
             <a>
             <svg

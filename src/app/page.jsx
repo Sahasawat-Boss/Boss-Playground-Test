@@ -6,28 +6,40 @@ import Footer from "../app/Components/footer";
 
 export default function FirstPage() {
   return (
-    <main className="flex flex-col h-screen">
+    <main className="flex flex-col h-screen relative">
       <Container>
         <NavBar />
-        <div className="flex items-center justify-center flex-grow p-10">
-          <div className="text-center">
-            <h3 className="text-5xl mb-12 font-bold">Boss PlayGround</h3>
-              {/* ===Top Content===*/}
+        <div
+          className="relative flex items-center justify-center flex-grow p-10"
+          style={{
+            backgroundImage: "url('https://plus.unsplash.com/premium_photo-1661964187664-e26f70e1a224?q=80&w=1187&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+            backgroundSize: "cover", backgroundPosition: "center",
+          }}
+        >
+          {/* Dark overlay */}
+          <div
+            className="absolute inset-0 bg-black" style={{
+              zIndex: 0,
+              opacity: 0.6, // Ensure the overlay is behind the content
+            }}
+          ></div>
 
-              <div className="flex justify-center mt-5 mb-10 gap-3">
-                <div className="w-32">
-                  <img className="rounded-full" src="https://cdn.dribbble.com/users/2442115/screenshots/8699490/media/48bbda278683c7879bebd57f0e2f9271.gif" alt="React Logo" />
-                </div>
-                <div className="w-36 mt-1">
-                  <img src="https://seeklogo.com/images/N/next-js-logo-7929BCD36F-seeklogo.com.png" alt="Next Logo" />
-                </div>
-              </div>
-            <a className=" px-10 py-4 text-white text-lg bg-green-600 shadow-lg rounded-lg hover:bg-green-500" href="/signIn">Get Start Now</a>
+          {/* Content */}
+          <div className="flex-col justify-center items-center text-center z-10 text-white">
+            <h3 className="text-6xl mb-12 font-bold">Boss PlayGround</h3>
+            {/* ===Top Content=== */}
+            <p className="pt-6 pb-6  px-36 text-xl ">Welcome to Boss Playground!</p>
+            <p className="px-36 text-xl mb-12">Sign in to access your personalized dashboard, explore exclusive features, and take your experience to the next level.</p>
+            <a
+              className="px-16 py-4 text-white text-xl bg-green-600 shadow-lg rounded-lg hover:bg-green-500"
+              href="/signIn"
+            >
+              Get Start Now
+            </a>
           </div>
         </div>
         <Footer />
       </Container>
     </main>
-
   );
 }

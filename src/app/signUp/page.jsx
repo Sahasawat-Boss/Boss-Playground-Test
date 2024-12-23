@@ -7,14 +7,14 @@ function SignUp() {
   return (
     <Container>
       <NavBar/>
-      <div className="hero flex-grow bg-base-200 pb-12">
+      <div className="hero flex-grow bg-[#646464] pb-12">
         <div className="hero-content flex-col gap-x-10 lg:flex-row-reverse">
-          <div className="text-center lg:text-left">
+          <div className="text-center text-white lg:text-left">
             <h1 className="text-5xl font-bold">Sign Up</h1>
             <p className="pt-6 px-36">Join Boss Playground to unlock a world of creativity, collaboration, and innovation!</p>
             <p className="pb-6 px-36"> Create your account in just a few steps and start your journey with us!</p>
           </div>
-          <div className="card w-full max-w-sm shrink-0 bg-base-100 shadow-2xl">
+          <div className="card w-[380px] shrink-0 bg-base-100 shadow-2xl">
             <form className="card-body pt-4">
               <div className="form-control">
                 <label className="label">
@@ -40,11 +40,11 @@ function SignUp() {
                 </label>
                 <input type="password" placeholder="Plese re-input your name" className="input input-bordered" required />
               </div>
-              <div className="form-control mt-6">
-                <button className="btn btn-primary bg-green-600" type='submit'>Sign In</button>
+              <div className="form-control mt-4">
+                <button className="btn btn-primary text-white text-lg bg-green-600" type='submit'>Sign Up</button>
               </div>
               <p>Already have an account?
-                <Link href="/signIn" className='text-blue-500 hover:underline'>Sign In</Link>
+                <Link href="/signIn" className='text-blue-500 hover:underline ml-1 '>Sign In</Link>
               </p>
             </form>
           </div>

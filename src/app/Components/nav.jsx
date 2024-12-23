@@ -4,12 +4,12 @@ function NavBar() {
 return (
     <div className="navbar bg-[#2e2e2e] text-white shadow-xl">
         <div className="flex-1">
-            <a className="btn btn-ghost text-xl">Boss PlayGround</a>
+            <a href='/' className="btn btn-ghost text-xl">Boss PlayGround</a>
         </div>
         <div className="flex-none">
             <ul className="menu menu-horizontal px-2">
                 <li><a href='/signIn'>Sign In</a></li>
-                <li><a href='/register'>Sign Up</a></li>
+                <li><a href='/signUp'>Sign Up</a></li>
                 <li>
                     <details>
                     <summary>Other</summary>
