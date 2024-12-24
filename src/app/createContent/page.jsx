@@ -8,7 +8,7 @@ function createContent() {
   return (
     <Container>
       <NavBar />
-      <div className="flex-grow bg-gray-800">
+      <div className="flex-grow bg-[#131325]">
         <Link href="/WelcomePage" className='bg-blue-700 inline-block text-white py-2 px-3 rounded mt-10 ml-10 hover:bg-blue-400'>
           Go back
         </Link>

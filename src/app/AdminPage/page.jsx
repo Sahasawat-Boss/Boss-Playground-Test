@@ -9,8 +9,8 @@ function AdminPage() {
     <Container>
       <AdminNav/>
         <div className='flex-grow'>
-                  <div className='container mx-auto'>
-                      <div className='flex justify-between mt-10'>
+                  <div className='container mx-16'>
+                      <div className='flex justify-start mt-10'>
                           <SideNav />
                           <Content />
                       </div>

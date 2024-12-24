@@ -11,7 +11,7 @@ function WelcomePage() {
         <Container>
             <NavBar />
             {/* === Welcome User and Content Section === */}
-            <div className='flex-grow bg-gray-800'>
+            <div className='flex-grow bg-[#131325]'>
                 <div className='container bg-white mx-auto shadow-xl my-10 p-10 rounded-xl'>
                     <div className='flex justify-between'>
                         <div className="flex-col text-center">
@@ -22,7 +22,8 @@ function WelcomePage() {
                         <p className="mt-2">Welcome, Boss-Sahasawat</p>
                         </div>
                         <div>
-                            <Link href="/createContent" className='bg-green-700 text-white text-lg px-3 pb-[8px] py-2 rounded-lg hover:bg-green-500'>Create Content</Link>
+                            <Link className='mr-2 px-3 py-2 font-semibold bg-[#217421] text-white rounded-lg hover:bg-[#79b479] hover:text-[#ffffff] transition shadow-lg hover:shadow-[0_0_10px_rgba(33, 116, 33, 1)]' 
+                                    href="/createContent">Create Content</Link>
                         </div>
                     </div>
 
@@ -40,8 +41,10 @@ function WelcomePage() {
                                 </p>
                             </div>
                             <div className='mt-5 '>
-                                <Link className='bg-[#4848b9] hover:bg-blue-400 text-white border py-2 px-3 rounded-md text-lg my-2 mr-2' href="/editContent">Edit Content</Link>
-                                <Link className='bg-[#b32b2b] hover:bg-red-400 text-white border py-2 px-3 rounded-md text-lg my-2' href="/delete">Delete Content</Link>
+                                <Link className='mr-2 px-3 py-1 border-[2px] font-semibold border-blue-500 text-blue-500 rounded-lg hover:bg-blue-500 hover:text-white transition shadow-lg hover:shadow-[0_0_10px_rgba(59,130,246,0.8)]' 
+                                    href="/editContent">Edit Content</Link>
+                                <Link className='mr-2 px-3 py-1 border-[2px] font-semibold border-[#b32b2b] text-[#b32b2b] rounded-lg hover:bg-[#b32b2b] hover:text-white transition shadow-lg hover:shadow-[0_0_10px_rgbargba(179, 43, 43, 1)]' 
+                                    href="/delete">Delete Content</Link>
                             </div>
                         </div>
                     </div>
