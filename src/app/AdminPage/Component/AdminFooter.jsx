@@ -1,6 +1,7 @@
 import React from 'react'
+import Link from 'next/link'
 
-function Footer() {
+function AdminFooter() {
 return (
     <footer className="footer bg-[#1d1d1d] text-neutral-content items-center px-6 py-8 shadow-[6px_0_30px_rgba(250,0,0,0.4)] z-50">
         <aside className="grid-flow-col items-center">
@@ -60,4 +61,4 @@ return (
 )
 }
 
-export default Footer
+export default AdminFooter

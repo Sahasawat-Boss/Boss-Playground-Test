@@ -31,9 +31,8 @@ export default function FirstPage() {
             <p className="pt-6 pb-6  px-36 text-xl ">Welcome to Boss Playground!</p>
             <p className="px-36 text-xl mb-12">Sign in to access your personalized dashboard, explore exclusive features, and take your experience to the next level.</p>
             <a
-              className="px-16 py-4 text-white text-xl bg-green-600 shadow-lg rounded-lg hover:bg-green-500"
-              href="/signIn"
-            >
+              className="px-16 py-3 text-black text-xl font-semibold bg-white shadow-lg shadow-red-500 rounded-lg hover:bg-black hover:text-white hover:shadow-sky-500"
+              href="/signIn">
               Get Start Now
             </a>
           </div>
