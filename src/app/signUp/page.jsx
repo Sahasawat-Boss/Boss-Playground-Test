@@ -1,9 +1,65 @@
+"use client"
+
+import React, { useState } from "react";
 import Container from "../Components/container";
 import NavBar from "../Components/nav";
 import Footer from "../Components/footer";
 import Link from 'next/link';
+import { set } from "mongoose";
 
 function SignUp() {
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    console.log("Name:", name); //Check if the input is captured
+    console.log("Email:", email); //Check if the input is captured
+    console.log("Password:", password); //Check if the input is captured
+    console.log("Confirm Password:", confirmPassword); //Check if the input is captured
+  
+    if (password !== confirmPassword) {
+      console.log("Passwords do not match!");
+      setError("Password and Confirm Password do not match!");
+      return;
+    }
+  
+    if (!name || !email || !password || !confirmPassword) {
+      console.log("Some fields are empty!");
+      setError("Please fill in all inputs!");
+      return;
+    }
+
+    try {
+
+      const res = await fetch("http://localhost:3000/api/signUp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, password}),
+      });
+
+      if (res.ok) {
+        const form = e.target; // Get the form element
+        setError(""); // Clear any previous error
+        form.reset(); // Reset the form
+      } else {
+        console.log(req.method, req.body);
+        console.log("Registeration failed!");
+      }
+
+    } catch (error) {
+      console.log("Error during sign up process: ", error);
+      
+    }
+  }
+
   return (
     <Container>
       <NavBar/>
@@ -24,30 +80,38 @@ function SignUp() {
             <p className="pb-6 px-48"> Create your account in just a few steps and start your journey with us!</p>
           </div>
           <div className="card w-[380px] shrink-0 bg-base-100 shadow-2xl">
-            <form className="card-body pt-4 pb-4">
+            {/*Form SignUp*/}
+            <form onSubmit={handleSubmit} className="card-body pt-4 pb-4">
+
+              {error && (
+                <div className="flex justify-center">
+                  <div className="bg-red-500 w-fit text-white text-sm px-2 py-1 rounded-md">{error}</div>
+                </div>
+              )}
+
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
                 </label>
-                <input type="email" placeholder="Plese input your name" className="input input-bordered" required />
+                <input type="text" onChange={(e)=>setName(e.target.value)} placeholder="Plese input your name" className="input input-bordered"/>
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
-                <input type="email" placeholder="Plese input your email" className="input input-bordered" required />
+                <input type="email" onChange={(e)=>setEmail(e.target.value)} placeholder="Plese input your email" className="input input-bordered"/>
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input type="password" placeholder="Plese input your password" className="input input-bordered" required />
+                <input type="password" onChange={(e)=>setPassword(e.target.value)} placeholder="Plese input your password" className="input input-bordered"/>
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Confirm Password</span>
                 </label>
-                <input type="password" placeholder="Plese re-input your name" className="input input-bordered" required />
+                <input type="password" onChange={(e)=>setConfirmPassword(e.target.value)} placeholder="Plese re-input your name" className="input input-bordered"/>
               </div>
               <div className="form-control mt-4">
                 <button className="btn btn-primary px-16 py-3 text-white text-xl font-semibold bg-black shadow-md shadow-red-300 rounded-lg hover:bg-[#585858] hover:text-white hover:shadow-sky-500"  type='submit'>Sign Up</button>
@@ -56,6 +120,7 @@ function SignUp() {
                 <Link href="/signIn" className='text-blue-500 hover:underline ml-1 '>Sign In</Link>
               </p>
             </form>
+            {/*Form SignUp*/}
           </div>
         </div>
       </div>
