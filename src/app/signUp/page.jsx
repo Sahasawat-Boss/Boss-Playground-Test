@@ -48,7 +48,7 @@ function SignUp() {
       const {user} = await resUserExists.json();
 
       if (user){
-        setError("User already exists!");
+        setError("This email already exists!");
         return;
       }
 
@@ -90,11 +90,12 @@ function SignUp() {
         
         {/* Hero Content */}
         <div className="hero-content flex-col gap-x-10 lg:flex-row-reverse">
-          <div className="text-center text-white lg:text-left">
+          <div className="text-center text-white mx-auto max-w-3xl">
             <h1 className="text-5xl font-bold">Sign Up</h1>
-            <p className="pt-6 px-48">Join Boss Playground to unlock a world of creativity, collaboration, and innovation!</p>
-            <p className="pb-6 px-48"> Create your account in just a few steps and start your journey with us!</p>
+            <p className="pt-6">Join Boss Playground to unlock a world of creativity, collaboration, and innovation!</p>
+            <p className="pb-6">Create your account in just a few steps and start your journey with us!</p>
           </div>
+
           <div className="card w-[380px] shrink-0 bg-base-100 shadow-2xl">
             {/*Form SignUp*/}
             <form onSubmit={handleSubmit} className="card-body pt-4 pb-4">

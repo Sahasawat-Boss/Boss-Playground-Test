@@ -1,11 +1,19 @@
+"use client"
+
 import Container from "../Components/container";
 import NavBar from "../Components/nav";
 import Footer from "../Components/footer";
 import Link from 'next/link';
 import Image from 'next/image'
 import { CgProfile } from "react-icons/cg";
+import { useSession } from "next-auth/react";
 
 function WelcomePage() {
+
+    const {data: session} = useSession();
+
+    console.log(session);
+
     return (
     <main className="flex flex-col h-screen relative ">
         <Container>
@@ -19,11 +27,12 @@ function WelcomePage() {
                                 <h3 className="text-3xl mb-2">Profile</h3>
                                 <div className="ml-1 text-[17.5px]"><CgProfile /></div>
                             </div>
-                        <p className="mt-2">Welcome, Boss-Sahasawat</p>
+                        <p className="mt-2">Welcome, {session.user?.name}</p>
+                        <p className="mt-2">Email: {session.user?.email}</p>
                         </div>
                         <div>
                             <Link className='mr-2 px-3 py-2 font-semibold bg-[#217421] text-white rounded-lg hover:bg-[#79b479] hover:text-[#ffffff] transition shadow-lg hover:shadow-[0_0_10px_rgba(33, 116, 33, 1)]' 
-                                    href="/createContent">Create Content</Link>
+                            href="/createContent">Create Content</Link>
                         </div>
                     </div>
 

@@ -1,4 +1,6 @@
-import React from 'react'
+"use client"
+
+import { signOut } from "next-auth/react"
 
 function NavBar() {
 return (
@@ -10,6 +12,7 @@ return (
             <ul className="menu menu-horizontal px-2">
                 <li><a href='/signIn'>Sign In</a></li>
                 <li><a href='/signUp'>Sign Up</a></li>
+                <li><a onClick={() => signOut()} className="bg-red-500 rounded-md">Sign Out</a></li>
                 <li>
                     <details>
                     <summary>Other</summary>

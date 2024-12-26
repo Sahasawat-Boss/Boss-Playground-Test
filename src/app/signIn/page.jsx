@@ -52,13 +52,13 @@ function SignIn() {
         
         {/* Hero Content */}
         <div className="hero-content flex-col gap-x-10 lg:flex-row-reverse relative">
-          <div className="text-center lg:text-left text-white">
-            <h1 className="text-5xl font-bold">Sign In</h1>
-            <p className="py-6 px-48">
-              "Welcome back to Boss Playground! Sign in to access your personalized dashboard, 
-              explore exclusive features, and take your experience to the next level."
-            </p>
-          </div>
+        <div className="text-center text-white mx-auto max-w-3xl">
+          <h1 className="text-5xl font-bold">Sign In</h1>
+          <p className="py-6">
+            "Welcome back to Boss Playground! Sign in to access your personalized dashboard, 
+            explore exclusive features, and take your experience to the next level."
+          </p>
+        </div>
           <div className="card w-[380px] shrink-0 bg-base-100 shadow-2xl">
             {/*Form SignUp*/}
             <form onSubmit={handleSubmit}
