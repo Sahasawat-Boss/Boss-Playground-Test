@@ -30,6 +30,8 @@ function SignIn() {
         return;
       }
       
+      router.replace("/WelcomePage"); //Redirect to WelcomePage
+
     } catch (error) {
       console.log(error);
       
