@@ -12,7 +12,7 @@ export async function POST(req){
         await connectMongoDB();
         await User.create({name, email, password: hashedPassword}); //Create a new user to DB
 
-        return NextResponse.json({message:"User signed"}, {status:201})
+        return NextResponse.json({message:"User Signed"}, {status:201})
         
     } catch (error) {
         return NextResponse.json({message:"An error occured during user sign up process."}, {status:500});

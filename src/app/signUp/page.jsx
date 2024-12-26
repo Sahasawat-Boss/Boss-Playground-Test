@@ -50,9 +50,8 @@ function SignUp() {
         setError(""); // Clear any previous error
         form.reset(); // Reset the form
       } else {
-        console.log(req.method, req.body);
         console.log("Registeration failed!");
-      }
+      } 
 
     } catch (error) {
       console.log("Error during sign up process: ", error);
