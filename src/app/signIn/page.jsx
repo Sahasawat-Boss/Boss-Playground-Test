@@ -5,12 +5,36 @@ import Container from "../Components/container";
 import NavBar from "../Components/nav";
 import Footer from "../Components/footer";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 function SignIn() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  const router = useRouter();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+
+      const res = await signIn("credentials", { //from api next-auth
+        email, password, redirect: false //redirect: false to prevent automatic redirection
+      })
+
+      if (res.error) {
+        setError("Invalid Credentils! (email or password or not correct)");
+        return;
+      }
+      
+    } catch (error) {
+      console.log(error);
+      
+    }
+  };
 
   return (
     <Container>
@@ -34,23 +58,25 @@ function SignIn() {
             </p>
           </div>
           <div className="card w-[380px] shrink-0 bg-base-100 shadow-2xl">
-            <form className="card-body pt-4 pb-4">
-              <div className="form-control">
-              
+            {/*Form SignUp*/}
+            <form onSubmit={handleSubmit}
+              className="card-body pt-4 pb-4">
+
               {error && (
                 <div className="flex justify-center">
                   <div className="bg-red-500 w-fit text-white text-sm px-2 py-1 rounded-md">{error}</div>
                 </div>
               )}
 
+              <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
                 <input 
-                  type="email" 
+                  type="email"
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="email" 
                   className="input input-bordered" 
-                  required 
                 />
               </div>
               <div className="form-control">
@@ -59,9 +85,9 @@ function SignIn() {
                 </label>
                 <input 
                   type="password" 
+                  onChange={(e) => setPassword(e.target.value)}
                   placeholder="password" 
                   className="input input-bordered" 
-                  required 
                 />
                 <label className="label">
                   <a href="#" className="link-hover link label-text-alt">Forgot password?</a>
@@ -79,6 +105,7 @@ function SignIn() {
                 <Link href="/signUp" className='text-blue-500 mt- hover:underline ml-1'>Sign Up</Link>
               </p>
             </form>
+            {/*Form SignUp*/}
           </div>
         </div>
       </div>

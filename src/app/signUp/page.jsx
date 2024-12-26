@@ -64,7 +64,7 @@ function SignUp() {
       if (res.ok) {
         const form = e.target; // Get the form element
         setError(""); // Clear any previous error
-        setSuccess("Sign up successfully, Please login to continue."); 
+        setSuccess("Sign up successfully, please sign in"); 
         form.reset(); // Reset the form
       } else {
         console.log("Registeration failed!");
