@@ -7,10 +7,12 @@ import Link from 'next/link';
 import Image from 'next/image'
 import { CgProfile } from "react-icons/cg";
 import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 function WelcomePage() {
 
     const {data: session} = useSession();
+    if (!session) redirect("/signIn"); // If user is not signed in, redirect to signIn
 
     console.log(session);
 
@@ -29,6 +31,7 @@ function WelcomePage() {
                             </div>
                         <p className="mt-2">Welcome, {session.user?.name}</p>
                         <p className="mt-2">Email: {session.user?.email}</p>
+                        <p className="mt-2">Role: {session.user?.role}</p>
                         </div>
                         <div>
                             <Link className='mr-2 px-3 py-2 font-semibold bg-[#217421] text-white rounded-lg hover:bg-[#79b479] hover:text-[#ffffff] transition shadow-lg hover:shadow-[0_0_10px_rgba(33, 116, 33, 1)]' 

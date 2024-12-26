@@ -1,14 +1,17 @@
+"use client";
+
 import Container from "../app/Components/container";
 import NavBar from "../app/Components/nav";
 import Footer from "../app/Components/footer";
 import Link from 'next/link';
+import { useSession } from "next-auth/react";
 
 
 export default function FirstPage() {
   return (
     <main className="flex flex-col h-screen relative">
       <Container>
-        <NavBar />
+        <NavBar session ={useSession} />
         <div
           className="relative flex items-center justify-center flex-grow p-10"
           style={{
