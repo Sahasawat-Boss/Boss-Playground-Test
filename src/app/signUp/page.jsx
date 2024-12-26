@@ -5,7 +5,6 @@ import Container from "../Components/container";
 import NavBar from "../Components/nav";
 import Footer from "../Components/footer";
 import Link from 'next/link';
-import { set } from "mongoose";
 
 function SignUp() {
 
@@ -14,6 +13,7 @@ function SignUp() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,6 +37,22 @@ function SignUp() {
 
     try {
 
+      const resUserExists = await fetch("http://localhost:3000/api/userExists",{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json", 
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const {user} = await resUserExists.json();
+
+      if (user){
+        setError("User already exists!");
+        return;
+      }
+
+
       const res = await fetch("http://localhost:3000/api/signUp", {
         method: "POST",
         headers: {
@@ -48,6 +64,7 @@ function SignUp() {
       if (res.ok) {
         const form = e.target; // Get the form element
         setError(""); // Clear any previous error
+        setSuccess("Sign up successfully, Please login to continue."); 
         form.reset(); // Reset the form
       } else {
         console.log("Registeration failed!");
@@ -85,6 +102,12 @@ function SignUp() {
               {error && (
                 <div className="flex justify-center">
                   <div className="bg-red-500 w-fit text-white text-sm px-2 py-1 rounded-md">{error}</div>
+                </div>
+              )}
+
+              {success && (
+                <div className="flex justify-center">
+                  <div className="bg-green-600 w-fit text-white text-sm px-2 py-1 rounded-md">{success}</div>
                 </div>
               )}
 

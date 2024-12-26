@@ -1,9 +1,17 @@
+"use client"
+
+import React, { useState } from "react";
 import Container from "../Components/container";
 import NavBar from "../Components/nav";
 import Footer from "../Components/footer";
 import Link from "next/link";
 
 function SignIn() {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
   return (
     <Container>
       <NavBar />
@@ -28,6 +36,13 @@ function SignIn() {
           <div className="card w-[380px] shrink-0 bg-base-100 shadow-2xl">
             <form className="card-body pt-4 pb-4">
               <div className="form-control">
+              
+              {error && (
+                <div className="flex justify-center">
+                  <div className="bg-red-500 w-fit text-white text-sm px-2 py-1 rounded-md">{error}</div>
+                </div>
+              )}
+
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
