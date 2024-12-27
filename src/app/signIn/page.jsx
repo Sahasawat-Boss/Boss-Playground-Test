@@ -63,17 +63,17 @@ function SignIn() {
         {/* Black overlay with 60% opacity */}
         <div className="absolute inset-0 bg-black bg-opacity-70"></div>
 
-        {/* Hero Content */}
+        {/* Hero Content */} {/* Add Animation: animate-floating and animate-fade-in-up*/}
         <div className="hero-content flex-col gap-x-10 lg:flex-row-reverse relative">
           <div className="text-center text-white mx-auto max-w-3xl">
-            <h1 className="text-5xl font-bold">Sign In</h1>
-            <p className="py-6">
+            <h1 className="text-5xl font-bold animate-floating">Sign In</h1> 
+            <p className="pt-6 animate-fade-in-up">
               "Welcome back to Boss Playground! Sign in to access your
-              personalized dashboard, explore exclusive features, and take your
-              experience to the next level."
-            </p>
+              personalized dashboard,</p>
+            <p className="pb-6 animate-fade-in-up">explore exclusive features, and take your
+              experience to the next level."</p>
           </div>
-          <div className="card w-[380px] shrink-0 bg-base-100 shadow-2xl">
+          <div className="card w-[380px] shrink-0 bg-base-100 shadow-2xl ">
             {/* Form SignIn */}
             <form
               onSubmit={handleSubmit}
@@ -108,13 +108,8 @@ function SignIn() {
                   placeholder="password"
                   className="input input-bordered focus:border-blue-500 focus:ring-2 focus:ring-blue-400"
                 />
-                <label className="label">
-                  <a href="#" className="link-hover link label-text-alt">
-                    Forgot password?
-                  </a>
-                </label>
               </div>
-              <div className="form-control mt-1">
+              <div className="form-control mt-6">
                 <button
                   className="btn btn-primary px-16 py-3 text-white text-xl font-semibold bg-black shadow-md shadow-red-300 rounded-lg hover:bg-[#585858] hover:text-white hover:shadow-sky-500"
                   type="submit"
@@ -122,14 +117,17 @@ function SignIn() {
                   Sign In
                 </button>
               </div>
-              <p className="mt-3">
+              <label className="label mt-2">
+                  <a href="#" className="link-hover link label-text-alt text-[14px]">
+                    Forgot password?
+                  </a>
+              </label>
+              <p className="mt-0">
                 Don't have an account?
                 <Link
                   href="/signUp"
-                  className="text-blue-500 mt- hover:underline ml-1"
-                >
-                  Sign Up
-                </Link>
+                  className="text-blue-600 font-medium hover:underline ml-1"
+                >Sign Up</Link>
               </p>
             </form>
             {/* Form SignIn */}

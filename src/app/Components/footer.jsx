@@ -17,10 +17,9 @@ return (
             </svg>
             <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
         </aside>
-        <div className="grid-flow-col items-center">
-            <a href="/WelcomePage" className='hover:underline mr-5'>Welcome-Page Test</a>
-            <a href="/AdminPage" className='hover:underline'>Admin</a>
-        </div>
+
+        <a href="/AdminPage" className='hover:underline'>Admin Dashboard - Test</a>
+
         <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
             <a>
             <svg
