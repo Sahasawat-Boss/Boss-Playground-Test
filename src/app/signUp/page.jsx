@@ -94,7 +94,7 @@ function SignUp() {
         <div className="absolute inset-0 bg-black bg-opacity-70"></div>
         
         {/* Hero Content */}
-        <div className="hero-content flex-col gap-x-10 lg:flex-row-reverse">
+        <div className="hero-content flex-col">
           <div className="text-center text-white mx-auto max-w-3xl">
             <h1 className="text-5xl font-bold animate-floating">Sign Up</h1>
             <p className="pt-6 animate-fade-in-up">Join Boss Playground to unlock a world of creativity, collaboration, and innovation!</p>

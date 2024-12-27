@@ -64,7 +64,7 @@ function SignIn() {
         <div className="absolute inset-0 bg-black bg-opacity-70"></div>
 
         {/* Hero Content */} {/* Add Animation: animate-floating and animate-fade-in-up*/}
-        <div className="hero-content flex-col gap-x-10 lg:flex-row-reverse relative">
+        <div className="hero-content flex-col relative">
           <div className="text-center text-white mx-auto max-w-3xl">
             <h1 className="text-5xl font-bold animate-floating">Sign In</h1> 
             <p className="pt-6 animate-fade-in-up">

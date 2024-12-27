@@ -20,28 +20,32 @@ function WelcomePage() {
     <main className="flex flex-col h-screen relative ">
         <Container>
             <NavBar />
-            {/* === Welcome User and Content Section === */}
-            <div className='flex-grow bg-[#131325]'>
-                <div className='container bg-white mx-auto shadow-xl my-10 p-10 rounded-xl'>
-                    <div className='flex justify-between'>
-                        <div className="flex-col text-center">
+            {/* === Welcome User, Profile === */}
+            <div className='flex-grow bg-[#1d1d30]'>
+                <h1 className=" my-6  mx-4 text-white text-3xl font-medium text-center ">Welcome, {session.user?.name}</h1>
+                <div className='bg-white w-fit mx-auto shadow-xl mb-10 p-4 px-8 rounded-xl'>
+                    <div className='flex justify-center'>
+                        <div className="flex-col items-start ">
                             <div className="flex items-center">
-                                <h3 className="text-3xl mb-2">Profile</h3>
+                                <h3 className="text-lg">Profile</h3>
                                 <div className="ml-1 text-[17.5px]"><CgProfile /></div>
                             </div>
-                        <p className="mt-2">Welcome, {session.user?.name}</p>
-                        <p className="mt-2">Email: {session.user?.email}</p>
-                        <p className="mt-2">Role: {session.user?.role}</p>
-                        </div>
-                        <div>
-                            <Link className='mr-2 px-3 py-2 font-semibold bg-[#217421] text-white rounded-lg hover:bg-[#79b479] hover:text-[#ffffff] transition shadow-lg hover:shadow-[0_0_10px_rgba(33, 116, 33, 1)]' 
-                            href="/createContent">Create Content</Link>
+                            <hr className="my-1 border-t-2 border-gray-300 w-full" />
+                            <p className="mt-2">User: {session.user?.name}</p>
+                            <p>Email: {session.user?.email}</p>
+                            <p>Role: {session.user?.role}</p>
                         </div>
                     </div>
-
-                    {/* === User Posts Data === */}
+                </div>
+                {/* === Content Section === */}
+                <div className='container bg-white mx-auto shadow-xl my-10 px-10 py-7 rounded-xl'>
+                    <div className="my-5">
+                        <Link className='mr-2 px-3 py-2 font-semibold bg-[#226922] text-white rounded-lg hover:bg-[#79b479] hover:text-[#ffffff] transition shadow-lg hover:shadow-[0_0_10px_rgba(33, 116, 33, 1)]' 
+                        href="/createContent">Create Content</Link>
+                    </div>
+                    {/* === User Content Data API GET === */}
                     <div>
-                        <div className="shadow-2xl my-6 p-10 rounded-xl">
+                        <div className="shadow-2xl my-0 p-10 rounded-xl">
                             <h3 className="text-xl font-semibold  my-3 underline">Content Title</h3>
                             <div className="flex justify-evenly gap-8">
                                 <Image src="https://images.unsplash.com/photo-1502581827181-9cf3c3ee0106?q=80&w=976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
