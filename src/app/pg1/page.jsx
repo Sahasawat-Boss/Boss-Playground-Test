@@ -29,8 +29,8 @@ return (
             </div>
 
             {/* Section: Variable Prop Component */}
-            <section className="w-fit mx-auto shadow-lg shadow-cyan-600 mb-3">
-                <h2 className="text-xl mx-8 font-semibold ">Prop</h2>
+            <section className="w-fit mx-auto shadow-lg shadow-[#5a91b6] mb-3 p-2">
+                <h2 className="text-xl mx-8 my-2 font-semibold ">Prop</h2>
                 <Item1 />
 
                 {/* Pass the item2Data array values to the Item2 component */}
@@ -42,7 +42,7 @@ return (
             {/* Section: Variable Prop Component */}
             {/* Section: Component Logic*/}
             <section className="w-fit mx-auto">
-                test
+                Next Section
             </section>
             {/* Section: Component Logic */}
         </main>

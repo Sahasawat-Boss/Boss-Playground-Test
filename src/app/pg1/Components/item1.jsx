@@ -11,8 +11,8 @@ const Item1 = () => {
 
   return (
     <>
-      <h1 className="text-lg text-center">Test Variable</h1>
-      <div className='flex gap-4 items-center justify-center bg-gray-700 py-4'>
+      <h1 className="text-lg text-center my-1">Test Variable fixed at Component</h1>
+      <div className='flex gap-4 items-center justify-center bg-gray-700 py-4 px-4'>
         <div>{name}</div>  {/*Render the value of `name` inside the div*/}
         <div>{surname}</div>
         <div>{shortName}</div>
