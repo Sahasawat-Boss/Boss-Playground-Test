@@ -35,7 +35,7 @@ function createContent() {
 
     try {
 
-      const res = await fetch("http://localhost:3000/api/contents",{
+      const res = await fetch("http://localhost:3000/api/content",{
         method: "POST",
         headers: {
           "Content-Type": "application/json", 
