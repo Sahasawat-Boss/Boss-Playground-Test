@@ -4,8 +4,8 @@ function Item1() {
   return (
 <<<<<<< HEAD:src/app/pg1/app1/Components/item1.jsx
     <>
-      <h1 className="text-lg text-center my-1">Test Variable fixed at Component</h1>
-      <div className='flex gap-4 items-center justify-center bg-gray-700 py-4 px-4'>
+      <h1 className="text-lg text-center">Test Variable</h1>
+      <div className='flex gap-4 items-center justify-center bg-gray-700 py-4'>
         <div>{name}</div>  {/*Render the value of `name` inside the div*/}
         <div>{surname}</div>
         <div>{shortName}</div>
