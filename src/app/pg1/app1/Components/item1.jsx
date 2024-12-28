@@ -1,15 +1,8 @@
 import React from 'react'
 
-const Item1 = () => {
-
-    let name = "Sahasawat" // name is a variable
-    let surname = "Rueankaew"
-    let shortName = "Boss"
-    let age = '24'
-    let mood = 'Good!'
-    console.log(Item1)
-
+function Item1() {
   return (
+<<<<<<< HEAD:src/app/pg1/app1/Components/item1.jsx
     <>
       <h1 className="text-lg text-center my-1">Test Variable fixed at Component</h1>
       <div className='flex gap-4 items-center justify-center bg-gray-700 py-4 px-4'>
@@ -20,6 +13,13 @@ const Item1 = () => {
         <div>Feel: {mood}</div>
       </div>
     </>
+=======
+    <div>
+      <div>Name</div>
+      <div>Surname</div>
+      <div>age</div>
+    </div>
+>>>>>>> parent of c9b6023 (c2):src/app/pg1/Components/item1.jsx
   )
 }
 
