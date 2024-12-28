@@ -25,42 +25,38 @@ return (
             // If user is not signed in, show Sign In and Sign Up links  //
             <ul className="menu menu-horizontal px-1 space-x-2">
                 <li className="group">
-                    <a
-                    href="/signIn"
+                    <Link href="/signIn"
                     className="relative transition duration-300 text-white hover:text-blue-400"
                     style={{ animation: "fadeUp 0.65s ease-in-out" }}>
                     Sign In
                     <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
-                    </a>
+                    </Link>
                 </li>
                 <li className="group">
-                    <a
-                    href="/signUp"
+                    <Link href="/signUp"
                     className="relative transition duration-300 text-white hover:text-blue-400"
                     style={{ animation: "fadeUp 0.65s ease-in-out" }}>
                     Sign Up
                     <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
-                    </a>
+                    </Link>
                 </li>
             </ul>
         ) : (
             // If user sign show below lists //
             <ul className="menu menu-horizontal px-1 space-x-2">
                 <li className="group">
-                    <Link
-                    href="/WelcomePage"
+                    <Link href="/WelcomePage"
                     className="relative transition duration-300 text-white hover:text-blue-400"
                     style={{ animation: "fadeUp 0.65s ease-in-out" }}>
-                    Main Page
+                    Dashboard
                     <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
                     </Link>
                 </li>
                 <li className="group">
-                    <Link
-                    href="/pg1"
+                    <Link href="/pg1"
                     className="relative transition duration-300 text-white hover:text-blue-400"
                     style={{ animation: "fadeUp 0.65s ease-in-out" }}>
-                    Play Ground 1
+                    PlayGround 1
                     <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
                     </Link>
                 </li>

@@ -1,5 +1,6 @@
 "use client"
 
+import React, {useState, useEffect} from "react";
 import Container from "../Components/container";
 import NavBar from "../Components/nav";
 import Footer from "../Components/footer";
@@ -13,8 +14,37 @@ function WelcomePage() {
 
     const {data: session} = useSession();
     if (!session) redirect("/signIn"); // If user is not signed in, redirect to signIn
-
     console.log(session);
+
+    const [contentData, SetContentData] = useState([]);
+
+    console.log(contentData);
+
+    const userEmail = session?.user?.email;
+
+    const getContents = async () => {
+        try {
+            const res = await fetch(`http://localhost:3000/api/contents?email=${userEmail}`, {
+                cache: "no-store"
+            });
+
+            if (!res.ok) {
+                throw new Error("Failed to fetch content");
+            } 
+            
+            const data = await res.json();
+            console.log(data);
+            //SetContentData(data.contents);
+
+        } catch(error) {
+            console.log("Error loading contents", error)
+            
+        }
+    }
+
+    useEffect(() => {
+        getContents();
+    }, []);
 
     return (
     <main className="flex flex-col h-screen relative ">
@@ -22,7 +52,7 @@ function WelcomePage() {
             <NavBar />
             {/* === Welcome User, Profile === */}
             <div className='flex-grow bg-[#1d1d30]'>
-                <h1 className=" my-6  mx-4 text-white text-3xl font-medium text-center ">Welcome, {session.user?.name}</h1>
+                <h1 className=" my-8  mx-4 text-white text-3xl font-medium text-center animate-floating ">Welcome, {session.user?.name}</h1>
                 <div className='bg-white w-fit mx-auto shadow-xl mb-10 p-4 px-8 rounded-xl'>
                     <div className='flex justify-center'>
                         <div className="flex-col items-start ">
@@ -45,24 +75,34 @@ function WelcomePage() {
                     </div>
                     {/* === User Content Data API GET === */}
                     <div>
-                        <div className="shadow-2xl my-0 p-10 rounded-xl">
-                            <h3 className="text-xl font-semibold  my-3 underline">Content Title</h3>
-                            <div className="flex justify-evenly gap-8">
-                                <Image src="https://images.unsplash.com/photo-1502581827181-9cf3c3ee0106?q=80&w=976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                                width={200}
-                                height={0}
-                                alt="Content Image"/>
-                                <p className="my-4">
-                                "The night sky is a canvas of wonder, painted with stars that whisper ancient stories. As darkness falls, the cosmos awakens, offering a breathtaking view of constellations, planets, and the infinite universe. Take a moment to gaze upward and lose yourself in its timeless beauty. 
-                                </p>
-                            </div>
-                            <div className='mt-5 '>
-                                <Link className='mr-2 px-3 py-1 border-[2px] font-semibold border-blue-500 text-blue-500 rounded-lg hover:bg-blue-500 hover:text-white transition shadow-lg hover:shadow-[0_0_10px_rgba(59,130,246,0.8)]' 
-                                    href="/editContent">Edit Content</Link>
-                                <Link className='mr-2 px-3 py-1 border-[2px] font-semibold border-[#b32b2b] text-[#b32b2b] rounded-lg hover:bg-[#b32b2b] hover:text-white transition shadow-lg hover:shadow-[0_0_10px_rgbargba(179, 43, 43, 1)]' 
-                                    href="/delete">Delete Content</Link>
-                            </div>
-                        </div>
+                        {contentData && contentData.length > 0?(
+                            contentData.map(val => (
+                                <div key={val._id} className="shadow-2xl my-0 p-10 rounded-xl">
+                                    <h3 className="text-xl font-semibold  my-3 underline">{val.title}</h3>
+                                    <div className="flex justify-evenly gap-8">
+                                        <Image src={val.img}
+                                        width={120}
+                                        height={0}
+                                        alt={val.title}/>
+                                        <p className="my-4">
+                                            {val.content} 
+                                        </p>
+                                    </div>
+                                    <div className='mt-5 '>
+                                        <Link className='mr-2 px-3 py-1 border-[2px] font-semibold border-blue-500 text-blue-500 rounded-lg hover:bg-blue-500 hover:text-white transition shadow-lg hover:shadow-[0_0_10px_rgba(59,130,246,0.8)]' 
+                                            href={`/edit/${val._id}`}>Edit Content</Link>
+                                        <Link className='mr-2 px-3 py-1 border-[2px] font-semibold border-[#b32b2b] text-[#b32b2b] rounded-lg hover:bg-[#b32b2b] hover:text-white transition shadow-lg hover:shadow-[0_0_10px_rgbargba(179, 43, 43, 1)]' 
+                                            href={`/edit/${val._id}`}>Delete Content</Link>
+                                    </div>
+                                </div>
+                            ))
+                            
+                        ):
+                            <p className="bg-slate-200 font-bold p-4 my-3 text-center">
+                                you do no have any posts yet.
+                            </p>
+                        }
+
                     </div>
                 </div>
             </div>
