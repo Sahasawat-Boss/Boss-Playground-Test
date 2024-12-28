@@ -61,7 +61,7 @@ function SignIn() {
         }}
       >
         {/* Black overlay with 60% opacity */}
-        <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-80"></div>
 
         {/* Hero Content */} {/* Add Animation: animate-floating and animate-fade-in-up*/}
         <div className="hero-content flex-col relative">

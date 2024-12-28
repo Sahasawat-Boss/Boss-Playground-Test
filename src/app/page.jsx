@@ -6,7 +6,7 @@ import Footer from "../app/Components/footer";
 import Link from 'next/link';
 import { useSession } from "next-auth/react";
 
-
+{/*===  Landing Page - First Page  ===*/}
 export default function FirstPage() {
   return (
     <main className="flex flex-col h-screen relative">
@@ -24,7 +24,7 @@ export default function FirstPage() {
             className="absolute inset-0 bg-black " 
             style={{
               zIndex: 0,
-              opacity: 0.6, // Ensure the overlay is behind the content
+              opacity: 0.7, // Ensure the overlay is behind the content
             }}
           ></div>
 
@@ -44,7 +44,7 @@ export default function FirstPage() {
                           hover:opacity-50 transition-all duration-300"
               ></span>
             </Link>
-
+            
           </div>
         </div>
         <Footer />
